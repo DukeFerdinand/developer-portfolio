@@ -1,5 +1,8 @@
 import React from "react";
+import MainLayout from "./MainLayout";
 
-const App = () => <div>Hello from react!</div>;
+import "./index.scss";
+
+const App = () => <MainLayout />;
 
 export default App;

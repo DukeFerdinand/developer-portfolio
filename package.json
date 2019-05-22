@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start:all": "concurrently -p \"[ {name} ]\" -n \"SERVER,UI\" -c \"blue.bold,green.bold\" \"yarn start:api\" \"yarn start:ui\"",
-    "start:api": "nodemon --config api.nodemon.json backend.rb",
+    "start:api": "nodemon --config api.nodemon.json server.rb -p 8080",
     "start:ui": "webpack --watch --mode development --display-error-details",
     "build": "webpack --mode production"
   },
@@ -15,16 +15,21 @@
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
     "concurrently": "^4.1.0",
+    "css-loader": "^2.1.1",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "jest": "^24.8.0",
+    "node-sass": "^4.12.0",
     "nodemon": "^1.19.0",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
     "webpack": "^4.31.0",
     "webpack-cli": "^3.3.2"
   },
   "dependencies": {
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.0"
   }
 }

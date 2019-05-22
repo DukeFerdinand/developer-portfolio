@@ -7,8 +7,8 @@ configure { set :server, :puma }
 set :root, 'dist'
 set :public_folder, 'dist'
 
-get '/api/user' do
-  "Hello World!"
+get '/api' do
+  "Hello from ruby!"
 end
 
 get '*' do

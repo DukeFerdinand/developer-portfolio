@@ -1,6 +1,10 @@
+# All
+.vscode/
+.env
+
 # Ruby
-.bundle/
 vendor/
 
 # JavaScript
 node_modules
+dist/

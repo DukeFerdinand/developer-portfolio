@@ -1,0 +1,11 @@
+.git/
+.gitignore
+node_modules/
+.bundle/
+vendor/
+src/
+scripts/
+api.nodemon.json
+webpack.config.js
+package.json
+yarn.lock
