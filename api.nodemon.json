@@ -1,7 +1,4 @@
 {
   "verbose": true,
-  "ignore": ["src/*"],
-  "execMap": {
-    "rb": "bundle exec ruby"
-  }
+  "ignore": ["src/*"]
 }
