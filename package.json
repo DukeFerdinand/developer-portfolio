@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start:all": "concurrently -p \"[ {name} ]\" -n \"SERVER,UI\" -c \"blue.bold,green.bold\" \"yarn start:api\" \"yarn start:ui\"",
-    "start:api": "nodemon --config api.nodemon.json server.rb -p 8080",
+    "start:api": "nodemon --config api.nodemon.json main.py",
     "start:ui": "webpack --watch --mode development --display-error-details",
     "build": "webpack --mode production"
   },
