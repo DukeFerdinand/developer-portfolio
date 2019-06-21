@@ -1,6 +1,7 @@
 # All
 .vscode/
-.env
+*.env
+!example*.env
 dist/
 
 # Python

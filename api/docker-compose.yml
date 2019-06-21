@@ -1,0 +1,22 @@
+version: "3.7"
+services:
+  python-dev:
+    build: .
+    container_name: dev-portfolio-api
+    ports:
+      - 5000:5000
+    env_file:
+      - dev.env
+    volumes:
+      # Enable work from in and out of container to affect server
+      - .:/app
+  # python-prod:
+  #   build: .
+  #   container_name: dev-portfolio-api
+  #   environment: dev.env
+  #   volumes:
+  #     # Enable work from in and out of container to affect server
+  #     - .:/app
+  mongo:
+    image: mongo
+    container_name: dev-portfolio-mongo
