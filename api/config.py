@@ -9,6 +9,13 @@ class App:
         "sentry_config": {
             "SENTRY_DSN": environ["SENTRY_DSN"] or "",
             "RELEASE": environ["RELEASE"]
+        },
+        "mongo_config": {
+            "MONGO_DB": environ["MONGO_DB"],
+            "MONGO_HOST": environ["MONGO_HOST"],
+            "MONGO_USR": environ["MONGO_USR"],
+            "MONGO_PWD": environ["MONGO_PWD"],
+            "MONGO_PORT": environ["MONGO_PORT"]
         }
     }
 

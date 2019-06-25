@@ -10,4 +10,8 @@ __pycache__/
 
 # JavaScript
 node_modules
-dist/
+.next
+
+# Dev database
+mongo/db/
+!.gitkeep

@@ -1,0 +1,45 @@
+version: "3.7"
+services:
+  proxy-dev:
+    build: ./nginx
+    # container_name:
+    ports:
+      - 8001:8001
+    links:
+      - "ui-dev:ui"
+      - "python-dev:api"
+    depends_on:
+      - ui-dev
+      - python-dev
+    volumes:
+      # Change to :ro in prod
+      - ./nginx/site.conf:/etc/nginx/conf.d/site.conf
+  ui-dev:
+    build: ./ui
+    container_name: dev-portfolio-ui
+    ports:
+      - 3000:3000
+    env_file:
+      - ui-dev.env
+    links:
+      - "python-dev:api"
+    volumes:
+      - ./ui:/app
+  python-dev:
+    build: ./api
+    container_name: dev-portfolio-api
+    ports:
+      - 5000:5000
+    env_file:
+      - api-dev.env
+    external_links:
+      - mongo-docker:mongo-docker
+    volumes:
+      # Enable work from in and out of container to affect server
+      - ./api:/app
+    networks:
+      - default
+      - mongo
+networks:
+  mongo:
+    external: true

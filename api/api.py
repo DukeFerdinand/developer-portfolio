@@ -2,6 +2,7 @@ from flask import Flask
 
 # Config stuff
 from config import App
+from db.config import connect_db
 
 # Tools
 from tools.config_sentry import init_sentry
@@ -13,6 +14,10 @@ from routes.stats import stats
 def create_app(config):
     app = Flask(__name__)
     app.config.from_object(config)
+
+    # Connect/prep database stuff and attach it to the app instance
+    # TODO: Wrap in error handling
+    app.db = connect_db(config["mongo_config"])
 
     # Basic non-data routes
     app.register_blueprint(stats)
