@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 
-const testApi = async cb => {
-  const res = await fetch(`/api/`).then(res => {
-    console.log(res);
-  });
-};
+import Hero from "../components/home-page/Hero";
+
+import "../styles/index.scss";
 
 const Home: React.SFC = () => {
-  return <div>Home</div>;
+  return (
+    <div>
+      <Hero />
+    </div>
+  );
 };
 
 export default Home;
