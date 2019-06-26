@@ -1,0 +1,34 @@
+{
+  "test": [
+    {
+      "_id": "db_test",
+      "content": "DB OK"
+    }
+  ],
+  "pages": [
+    {
+      "_id": "front_page"
+    },
+    {
+      "_id": "contact_page"
+    }
+  ],
+  "cms_content": [
+    {
+      "page_id": "front_page",
+      "components": ["hero_section"]
+    }
+  ],
+  "components": [
+    {
+      "_id": "hero_section",
+      "required_sections": ["title", "subtitle", "hasImage", "image"],
+      "available_sections": ["title", "subtitle", "hasImage", "image"]
+    },
+    {
+      "_id": "form_section",
+      "required_sections": ["title", "input", "submit_button"],
+      "available_sections": ["title", "input", "submit_button"]
+    }
+  ]
+}
