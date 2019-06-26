@@ -25,6 +25,7 @@ services:
       - "python-dev:api"
     volumes:
       - ./ui:/app
+      - /app/node_modules
   python-dev:
     build: ./api
     container_name: dev-portfolio-api
