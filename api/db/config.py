@@ -1,4 +1,4 @@
-from pymongo import MongoClient
+from mongoengine import connect
 
 
 def connect_db(c):
@@ -10,8 +10,10 @@ def connect_db(c):
 
     print('Connecting to DB...')
 
-    client = MongoClient(
-        f"mongodb://{c['MONGO_USR']}:{c['MONGO_PWD']}@{c['MONGO_HOST']}:{c['MONGO_PORT']}")
+    client = connect(
+        host=f"mongodb://{c['MONGO_USR']}:{c['MONGO_PWD']}@{c['MONGO_HOST']}:{c['MONGO_PORT']}")
+
+    print(client)
 
     db = client[c['MONGO_DB']]
 

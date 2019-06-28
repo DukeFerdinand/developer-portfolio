@@ -1,14 +1,18 @@
 from flask import Flask
+from flask_graphql import GraphQLView
 
 # Config stuff
 from config import App
-from db.config import connect_db
 
 # Tools
 from tools.config_sentry import init_sentry
 
 # Routes
 from routes.stats import stats
+
+# Database
+from db.config import connect_db
+from db.schema.schema import schema
 
 
 def create_app(config):
@@ -19,8 +23,16 @@ def create_app(config):
     # TODO: Wrap in error handling
     app.db = connect_db(config["mongo_config"])
 
-    # Basic non-data routes
+    # Basic non-graphql routes
     app.register_blueprint(stats)
+
+    # graphql setup
+    use_graphiql = config['IS_DEV']
+    app.add_url_rule(
+        '/graphql',
+        view_func=GraphQLView.as_view(
+            'graphql', schema=schema, graphiql=use_graphiql)
+    )
 
     # if config['FLASK_ENV'] != 'production':
     #     # Configure tools like Sentry for monitoring the app

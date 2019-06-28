@@ -1,3 +1,4 @@
 flask
+flask-graphql
 sentry-sdk[flask]
-pymongo
+graphene-mongo

@@ -1,5 +1,6 @@
 # All
 .vscode/
+.idea/
 *.env
 !example*.env
 dist/

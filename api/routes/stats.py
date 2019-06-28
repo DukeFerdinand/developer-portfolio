@@ -1,4 +1,4 @@
-from flask import Blueprint, current_app
+from flask import Blueprint, current_app, jsonify
 
 from tools.utils import debug
 
@@ -7,7 +7,7 @@ stats = Blueprint("stats", __name__)
 
 @stats.route('/')
 def health_check():
-    return 'API OK'
+    return jsonify({"msg": "API OK"})
 
 
 @stats.route('/db-health-check')
