@@ -10,12 +10,11 @@ def connect_db(c):
 
     print('Connecting to DB...')
 
-    client = connect(
-        host=f"mongodb://{c['MONGO_USR']}:{c['MONGO_PWD']}@{c['MONGO_HOST']}:{c['MONGO_PORT']}")
+    db = connect(
+        c['MONGO_DB'],
+        host=f"mongodb://{c['MONGO_USR']}:{c['MONGO_PWD']}@{c['MONGO_HOST']}:{c['MONGO_PORT']}/?authSource=admin")
 
-    print(client)
-
-    db = client[c['MONGO_DB']]
+    print(db)
 
     print("DB connection successful")
 

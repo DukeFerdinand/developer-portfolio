@@ -5,7 +5,7 @@ from db.models.models import Page as PageModel
 from db.models.models import PageData as PageDataModel
 
 
-class Page(MongoengineObjectType):
+class CMSPage(MongoengineObjectType):
 
     class Meta:
         model = PageModel
@@ -14,7 +14,8 @@ class Page(MongoengineObjectType):
 
 class Query(graphene.ObjectType):
     node = Node.Field()
-    all_pages = MongoengineConnectionField(Page)
+    all_cms_pages = MongoengineConnectionField(CMSPage)
+    cms_page = graphene.Field(CMSPage, page_type=graphene.String())
     # role = graphene.Field(Role)
 
 
